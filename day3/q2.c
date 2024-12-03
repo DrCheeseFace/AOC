@@ -127,11 +127,14 @@ int main() {
                     pWindow++;
                     continue;
                 }
-                char* pComma         = findNextChar(pInside_brackets, COMMA);
+                char* pComma = findNextChar(pInside_brackets, COMMA);
+                if (pComma == NULL) {
+                    pWindow++;
+                    continue;
+                }
                 char* pFirst_number  = getStringBetweenPointers(pInside_brackets, pComma);
                 char* pSecond_number = getStringBetweenPointers(
                     pComma + 1, pInside_brackets + strlen(pInside_brackets));
-
                 if (pFirst_number == NULL || pSecond_number == NULL) {
                     pWindow++;
                     continue;
