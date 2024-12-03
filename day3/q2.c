@@ -16,7 +16,7 @@
 #define COMMA ","
 
 char* getStringBetweenBrackets(char* pStart, char* pEnd) {
-    pStart += 4;
+    pStart += strlen(STARTING_STRING);
     unsigned long length = pEnd - pStart;
 
     char* pInside_brackets = malloc(length + 1);
@@ -40,20 +40,6 @@ char* getStringBetweenPointers(char* pStart, char* pEnd) {
     strncpy(pInside_pointers, pStart, length);
     pInside_pointers[length] = '\0';
     return pInside_pointers;
-}
-
-char* findNextChar(char* pString, char* pSearchString) {
-    char* pFind_search_string = pString;
-    size_t length             = strlen(pString);
-    int i;
-
-    for (i = 0; i < length; i++) {
-        if (strncmp(pFind_search_string, pSearchString, strlen(pSearchString)) == 0) {
-            return pFind_search_string;
-        }
-        pFind_search_string++;
-    }
-    return NULL;
 }
 
 int tryStringToInt(char* pString_number) {
@@ -120,7 +106,7 @@ int main() {
             }
 
             if (strncmp(pWindow, STARTING_STRING, strlen(STARTING_STRING)) == 0) {
-                char* pClosing_bracket = findNextChar(pWindow, CLOSING_BRACKET);
+                char* pClosing_bracket = strstr(pWindow, CLOSING_BRACKET);
                 if (pClosing_bracket == NULL) {
                     printf("couldnt find closign bracket");
                     break;
@@ -131,7 +117,7 @@ int main() {
                     pWindow++;
                     continue;
                 }
-                char* pComma = findNextChar(pInside_brackets, COMMA);
+                char* pComma = strstr(pInside_brackets, COMMA);
                 if (pComma == NULL) {
                     pWindow++;
                     continue;
