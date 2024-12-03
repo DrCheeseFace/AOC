@@ -111,9 +111,8 @@ int main() {
 
     for (int j = 0; j < ARRAY_LENGTH; j++) {
         char* pWindow = lines[j];
-        size_t length = strlen(pWindow);
 
-        for (i = 0; i < length - 1; i++) {
+        while (pWindow != lines[j] + strlen(lines[j])) {
             handleEnableDisable(pWindow, pEnabled);
             if (!enabled) {
                 pWindow++;
