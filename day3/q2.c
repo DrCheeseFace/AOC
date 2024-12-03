@@ -115,6 +115,11 @@ int main() {
 
         for (i = 0; i < length - 1; i++) {
             handleEnableDisable(pWindow, pEnabled);
+            if (!enabled) {
+                pWindow++;
+                continue;
+            }
+
             if (strncmp(pWindow, STARTING_STRING, strlen(STARTING_STRING)) == 0) {
                 char* pClosing_bracket = findNextChar(pWindow, CLOSING_BRACKET);
                 if (pClosing_bracket == NULL) {
@@ -146,9 +151,8 @@ int main() {
                     pWindow++;
                     continue;
                 }
-                if (enabled) {
-                    count += first_number * second_number;
-                }
+
+                count += first_number * second_number;
 
                 free(pInside_brackets);
                 free(pFirst_number);
