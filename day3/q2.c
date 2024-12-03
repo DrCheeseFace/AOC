@@ -43,16 +43,14 @@ char* getStringBetweenPointers(char* pStart, char* pEnd) {
 }
 
 int tryStringToInt(char* pString_number) {
-    char* pWalk_string = pString_number;
-    while (pWalk_string != pString_number + strlen(pString_number)) {
-        if (*pWalk_string < '0' || *pWalk_string > '9') {
-            return 0;
-        }
-        pWalk_string++;
+    char* endptr;
+    long value = strtol(pString_number, &endptr, 10);
+
+    if (*endptr != '\0') { 
+        return 0;
     }
 
-    long out = strtol(pString_number, &pString_number + strlen(pString_number), 10);
-    return out;
+    return value;
 }
 
 int handleEnableDisable(char* pString, bool* p_enabled) {
