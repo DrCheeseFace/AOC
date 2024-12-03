@@ -96,7 +96,10 @@ int main() {
     fclose(read_file);
 
     // actual logic
-    long count = 0;
+    long count     = 0;
+    bool enabled   = true;
+    bool* pEnabled = &enabled;
+
     for (int j = 0; j < ARRAY_LENGTH; j++) {
         char* pWindow = lines[j];
         size_t length = strlen(pWindow);
