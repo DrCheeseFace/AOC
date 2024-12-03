@@ -112,6 +112,10 @@ int main() {
 
                 char* pInside_brackets =
                     getStringBetweenBrackets(pWindow, pClosing_bracket);
+                if (pInside_brackets == NULL) {
+                    pWindow++;
+                    continue;
+                }
                 char* pComma = findNextChar(pInside_brackets, COMMA);
                 char* pFirst_number =
                     getStringBetweenPointers(pInside_brackets, pComma);
