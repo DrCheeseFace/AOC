@@ -64,9 +64,9 @@ int main() {
             ptr++;
         }
 
-        data           = realloc(data, (num_rows + 1) * sizeof(int*));
-        row_lengths    = realloc(row_lengths, (num_rows + 1) * sizeof(int));
-        data[num_rows] = row;
+        data                  = realloc(data, (num_rows + 1) * sizeof(int*));
+        row_lengths           = realloc(row_lengths, (num_rows + 1) * sizeof(int));
+        data[num_rows]        = row;
         row_lengths[num_rows] = row_size;
         num_rows++;
     }

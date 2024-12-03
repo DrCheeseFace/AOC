@@ -48,8 +48,7 @@ char* findNextChar(char* pString, char* pSearchString) {
     int i;
 
     for (i = 0; i < length; i++) {
-        if (strncmp(pFind_search_string, pSearchString,
-                    strlen(pSearchString)) == 0) {
+        if (strncmp(pFind_search_string, pSearchString, strlen(pSearchString)) == 0) {
             return pFind_search_string;
         }
         pFind_search_string++;
@@ -66,8 +65,7 @@ int tryStringToInt(char* pString_number) {
         pWalk_string++;
     }
 
-    long out =
-        strtol(pString_number, &pString_number + strlen(pString_number), 10);
+    long out = strtol(pString_number, &pString_number + strlen(pString_number), 10);
     return out;
 }
 
@@ -117,23 +115,20 @@ int main() {
 
         for (i = 0; i < length - 1; i++) {
             handleEnableDisable(pWindow, pEnabled);
-            if (strncmp(pWindow, STARTING_STRING, strlen(STARTING_STRING)) ==
-                0) {
+            if (strncmp(pWindow, STARTING_STRING, strlen(STARTING_STRING)) == 0) {
                 char* pClosing_bracket = findNextChar(pWindow, CLOSING_BRACKET);
                 if (pClosing_bracket == NULL) {
                     printf("couldnt find closign bracket");
                     break;
                 }
 
-                char* pInside_brackets =
-                    getStringBetweenBrackets(pWindow, pClosing_bracket);
+                char* pInside_brackets = getStringBetweenBrackets(pWindow, pClosing_bracket);
                 if (pInside_brackets == NULL) {
                     pWindow++;
                     continue;
                 }
-                char* pComma = findNextChar(pInside_brackets, COMMA);
-                char* pFirst_number =
-                    getStringBetweenPointers(pInside_brackets, pComma);
+                char* pComma         = findNextChar(pInside_brackets, COMMA);
+                char* pFirst_number  = getStringBetweenPointers(pInside_brackets, pComma);
                 char* pSecond_number = getStringBetweenPointers(
                     pComma + 1, pInside_brackets + strlen(pInside_brackets));
 
