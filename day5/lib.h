@@ -3,14 +3,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-// #define RULES_FILE "testrules.txt"
 #define RULES_FILE "rules.txt"
-// #define UPDATES_FILE "testupdates.txt"
 #define UPDATES_FILE "updates.txt"
 #define NUMBER_OF_RULES 1176
-// #define NUMBER_OF_RULES 21
 #define NUMBER_OF_UPDATES 197
-// #define NUMBER_OF_UPDATES 6
 #define MAX_COLS_OF_UPDATE 23
 
 bool followsRules(int len, int update[MAX_COLS_OF_UPDATE], int left, int right) {
