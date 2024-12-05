@@ -3,8 +3,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#ifndef LIB_H
-#define LIB_H
 // #define RULES_FILE "testrules.txt"
 #define RULES_FILE "rules.txt"
 // #define UPDATES_FILE "testupdates.txt"
@@ -62,5 +60,3 @@ void fix_order(int rules[NUMBER_OF_RULES][2], int update[MAX_COLS_OF_UPDATE], in
         }
     }
 }
-
-#endif // MY_FUNCTIONS_H
