@@ -24,12 +24,16 @@ long long int getOperatorSum(int operators_count, Operation* operators, int nums
     long long int sum = nums[0];
     int operator_idx  = 0;
     for (int i = 1; i < nums_count; i++) {
-        if (operators[operator_idx] == ADD) {
+        switch (operators[operator_idx]) {
+        case ADD:
             sum += nums[i];
-        } else if (operators[operator_idx] == MULTIPLY) {
+            break;
+        case MULTIPLY:
             sum *= nums[i];
-        } else {
+            break;
+        case CONCAT:
             sum = sum * pow(10, floor(log10(nums[i]) + 1)) + nums[i];
+            break;
         }
         operator_idx++;
     }
@@ -38,14 +42,16 @@ long long int getOperatorSum(int operators_count, Operation* operators, int nums
 
 void incrementOperators(int count, Operation* operators) {
     for (int i = count - 1; i >= 0; i--) {
-        if (operators[i] == ADD) {
+        switch (operators[i]) {
+        case ADD:
             operators[i] = MULTIPLY;
             return;
-        } else if (operators[i] == MULTIPLY) {
+        case MULTIPLY:
             operators[i] = CONCAT;
             return;
-        } else {
+        case CONCAT:
             operators[i] = ADD;
+            break;
         }
     }
 }
